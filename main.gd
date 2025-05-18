@@ -123,7 +123,7 @@ func _new_game():
 	# Oh yeah, also add our ASTEROID SPAWNER WOOOO
 	var asteroid_spawner: Node2D = load("res://asteroid_spawner.tscn").instantiate()
 	asteroid_spawner.player = player
-	asteroid_spawner.max_asteroids = 6 + level
+	asteroid_spawner.max_asteroids = 3 + level
 	add_child(asteroid_spawner)
 
 # Clears the main scene of any children
@@ -142,6 +142,7 @@ func _arrive():
 	if destination == "08":
 		# It is! Display the ending cutscene
 		_game_over("win")
+		return
 	
 	# Add our audio player and have it start playing
 	var snd_player: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -302,7 +303,7 @@ func _destination_selected(d_id: String):
 	# Oh yeah, also add our ASTEROID SPAWNER WOOOO
 	var asteroid_spawner: Node2D = load("res://asteroid_spawner.tscn").instantiate()
 	asteroid_spawner.player = player
-	asteroid_spawner.max_asteroids = 2 * level
+	asteroid_spawner.max_asteroids = 3 + level
 	add_child(asteroid_spawner)
 
 # Signal connector function for handling other effects from choices

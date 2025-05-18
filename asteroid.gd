@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal asteroid_destroyed
+
 # Asteroidy stuff
 var size: float = 1.0 # How big is our asteroid? (usually 0.3 to 1.0 is the range here)
 var health: float = 15.0 # How much damage can the asteroid take before breaking
@@ -38,6 +40,18 @@ func _ready():
 	# Let's also have it spin in a random direction as well
 	angular_velocity = randf_range(-3.5, 3.5)
 
+# Called every frame
+func _process(delta: float) -> void:
+	# How far away are we from the player?
+	var player: RigidBody2D = get_tree().get_first_node_in_group("player")
+	if is_instance_valid(player):
+		var dist: float = (player.global_position - global_position).length()
+		if dist > 1000:
+			# Too far, destroy and be reborn!
+			emit_signal("asteroid_destroyed")
+			queue_free()
+
+
 # When ships shoot us or collide with us, we can take damage
 func take_damage(amount: float):
 	# Take the damage
@@ -45,4 +59,5 @@ func take_damage(amount: float):
 	# Do we need to break apart?
 	if health <= 0:
 		# Yup, breaketh thyself fool! (Emit signal that we've been destroyed)
+		emit_signal("asteroid_destroyed")
 		queue_free()
