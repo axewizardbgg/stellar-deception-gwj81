@@ -501,7 +501,7 @@ var events: Array = [
 				"description": "Attempt to search the derelict ship.",
 				"result": "You send your crew in to search the ship. Immediately upon breaching the door, your hear on comms: 'What the-' followed by screaming. You give quick orders to disengage, and your crew complies rapidly. You engage your thruster to full and flee. Once you're out of immediate danger, you debrief the crew. You've lost a few men, and no one could give a straight answer on what exactly was on that ship...",
 				"effect_ship": 0,
-				"effect_crew": -10,
+				"effect_crew": -25,
 				"effect_cash": 0,
 			},
 			{
@@ -588,8 +588,8 @@ var events: Array = [
 				"description": "Conduct an inventory of all stores and jettison any tainted goods.",
 				"result": "You immediately rally some of the crew and begin going through everything. About 25% of your food is not fit for consumption, and you order it to be jettisoned. Some of the crew are also ill, but it does not appear to be lethal or contagious. You should have enough to get by, but you'll need to spend more than you budgeted for on restocking when you next arrive at a port.",
 				"effect_ship": 0,
-				"effect_crew": -10,
-				"effect_cash": -5,
+				"effect_crew": -15,
+				"effect_cash": -10,
 			},
 			{
 				"description": "Food Prep: Laser-fry everything to burn the parasites and re-cryo it.",
@@ -615,7 +615,7 @@ var events: Array = [
 			{
 				"description": "Your engines still work, get out of here.",
 				"result": "You decide whatever is interfering could be malicious, and you've no mind to hang around. You engage full thrusters and attempt to outrun whatever might be causing this. Eventually your systems return to normal, but not before you bounce off a few small asteroids that your malfunctioning instrumentation failed to warn you about.",
-				"effect_ship": -10,
+				"effect_ship": -15,
 				"effect_crew": 0,
 				"effect_cash": 0,
 			},
@@ -650,7 +650,7 @@ var events: Array = [
 			{
 				"description": "Divert course toward the beacon to render aid.",
 				"result": "As you pull alongside the disabled craft, your scanners indicate no signs of life. Suddenly an alarm claxon sounds. You rapidly scan your console and see a hostile ship coming right for you! You order the crew to battle stations as the first salvo hits your ship.",
-				"effect_ship": -5,
+				"effect_ship": -10,
 				"effect_crew": 0,
 				"effect_cash": 0,
 				"other_effects": {
@@ -675,7 +675,7 @@ var events: Array = [
 				"description": "Divert course toward the beacon to render aid.",
 				"result": "As you pull alongside the disabled craft, your scanners indicate no signs of life. The crew breach the jammed hatch and find the decayed corpses of the inhabitants of the other ship. No signs of struggle, it appears they either died of starvation or life support was inoperable. You salvage some supplies and parts for your ship and move on.",
 				"effect_ship": 15,
-				"effect_crew": -2,
+				"effect_crew": -5,
 				"effect_cash": 0,
 			},
 			{
@@ -703,7 +703,7 @@ var events: Array = [
 				"description": "Decline the offer, it's probably a trap anyway.",
 				"result": "You thank the Captain of the merchant vessel for his offer, but decline. Some of the crew are a little disappointed but they all understand. Not everything is as it seems in the nothingness of space. Shortly after you closed comms with the merchant vessel, your sensors detect a few ships headed towards the merchant. 'Customers? Or Pirates?' you wonder as you resume your journey...",
 				"effect_ship": 0,
-				"effect_crew": -2,
+				"effect_crew": -5,
 				"effect_cash": 0,
 			},
 		]
@@ -716,7 +716,7 @@ var events: Array = [
 			{
 				"description": "Accept the offer, you could always use some supplies.",
 				"result": "You plot a course for the merchant vessel and soon you're pulling along side it. As you dock with them, shouts of alarm ring out from the crew! 'We've got boarders!'. You snap into action and order the crew to repel hostiles and disengage docking. Your crew suffers mild casualties and you get away, however an alarm claxon sounds as your sensors detect a pirate vessel headed right towards you. You order the crew to battle stations.",
-				"effect_ship": 0,
+				"effect_ship": -10,
 				"effect_crew": -5,
 				"effect_cash": 0,
 				"other_effects": {
@@ -727,7 +727,7 @@ var events: Array = [
 				"description": "Decline the offer, it's probably a trap anyway.",
 				"result": "You thank the Captain of the merchant vessel for his offer, but decline. Some of the crew are a little disappointed but they all understand. Not everything is as it seems in the nothingness of space. Shortly after you closed comms with the merchant vessel, your sensors detect a few ships headed towards the merchant. 'Customers? Or Pirates?' you wonder as you resume your journey...",
 				"effect_ship": 0,
-				"effect_crew": -2,
+				"effect_crew": -5,
 				"effect_cash": 0,
 			},
 		]
@@ -783,14 +783,14 @@ var events: Array = [
 				"description": "Detain the main to be turned into the port authorities when you next dock.",
 				"result": "You order the man to be detained and kept under watch. You'll be able to make a few credits from turning him in when you arrive at your destination. His constant pleas grate on the ears of your crew however, they eventually gag him as well.",
 				"effect_ship": 0,
-				"effect_crew": -4,
+				"effect_crew": -5,
 				"effect_cash": 10,
 			},
 			{
 				"description": "Allow him to work off his passage.",
 				"result": "You relent and allow him to work. Unfortunately he has no skills. After wasting some of the crew's time, they eventually just task him with cleaning, and he even fails to do that correctly.",
 				"effect_ship": -2,
-				"effect_crew": -2,
+				"effect_crew": -5,
 				"effect_cash": 0,
 			},
 		]
@@ -803,7 +803,7 @@ var events: Array = [
 			{
 				"description": "Investigate the signal. Why would an old satellite be in distress?",
 				"result": "As you approach, it begins broadcasting increasingly erratic messages suggesting its AI has developed unusual behavior after centuries of isolation. As you prepare to leave, alarm claxons sound. Enemy ship inbound!",
-				"effect_ship": 0,
+				"effect_ship": -10,
 				"effect_crew": 0,
 				"effect_cash": 0,
 				"other_effects": {
@@ -827,7 +827,7 @@ var events: Array = [
 			{
 				"description": "Hail the Alien Vessel, perhaps there's an opportunity here.",
 				"result": "Your hails go unanswered. As you're about to resume your course, alarm claxons sound. The Alien vessel is heading right for you with weapon locks disengaged. You order your crew to battle stations and brace for the coming fight.",
-				"effect_ship": 0,
+				"effect_ship": -10,
 				"effect_crew": 0,
 				"effect_cash": 0,
 				"other_effects": {
@@ -837,7 +837,7 @@ var events: Array = [
 			{
 				"description": "Keep moving and leave it be, you'd rather not inadvertently cause an intergalactic incident.",
 				"result": "As you're about to resume your course, alarm claxons sound. Looks like it just hadn't noticed you yet because the Alien vessel is now heading right for you with weapon locks disengaged. You order your crew to battle stations and brace for the coming fight.",
-				"effect_ship": 0,
+				"effect_ship": -10,
 				"effect_crew": 0,
 				"effect_cash": 0,
 				"other_effects": {
@@ -854,7 +854,7 @@ var events: Array = [
 			{
 				"description": "Hail the Alien Vessel, perhaps there's an opportunity here.",
 				"result": "You're surprised to receive a response to your hail. The (what you presume to be) Captain of the Alien ship invites you to trade and you accept. It's a tense few moments as you pull alongside the foreign craft, but before long the airlocks are set and their Captain comes aboard with a smaller species you're not familiar with. You spend the better part of an hour haggling over prices as your crew transfers cargo to and from their ship. You guess Aliens aren't so bad after all... they still weird you out though.",
-				"effect_ship": 5,
+				"effect_ship": 10,
 				"effect_crew": 5,
 				"effect_cash": 10,
 			},
@@ -875,7 +875,7 @@ var events: Array = [
 			{
 				"description": "Hail the Alien Vessel, perhaps there's an opportunity here.",
 				"result": "After a few moments your receive a semi-encrypted response to your hail. A few moments later and your console displays the decrypted (and translated) message: 'You carry evil, dispose of it or be destroyed.'. What does this mean? What are they talking about? Is it the sealed container you carry? You order the crew to battle stations. Another hail comes in and is decrypted, but not translated: U'Wyl'Git'Rekt. You're not sure what it means, but the alarm claxons translate well enough for you.",
-				"effect_ship": 0,
+				"effect_ship": -10,
 				"effect_crew": 0,
 				"effect_cash": 0,
 				"other_effects": {
@@ -885,7 +885,7 @@ var events: Array = [
 			{
 				"description": "Keep moving and leave it be, you'd rather not inadvertently cause an intergalactic incident.",
 				"result": "As your about to resume course, you receive a hail from the Alien ship. After a short delay your console displays the decrypted (and translated) message: 'You carry evil, dispose of it or be destroyed.'. What does this mean? What are they talking about? Is it the sealed container you carry? You order the crew to battle stations. Another hail comes in and is decrypted, but doesn't appear to be translated: U'Wyl'Git'Rekt. You're not sure what it means, but the alarm claxons translate well enough for you.",
-				"effect_ship": 0,
+				"effect_ship": -10,
 				"effect_crew": 0,
 				"effect_cash": 0,
 				"other_effects": {

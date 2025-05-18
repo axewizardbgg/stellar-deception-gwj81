@@ -85,8 +85,9 @@ func setup_weapons() -> void:
 		weapon.queue_free()
 	
 	# Recreate our weapon nodes from our weapons list
+	var weapon_scene: PackedScene = load("res://weapon.tscn")
 	for entry in weapons:
-		var weapon: Node2D = load("res://weapon.tscn").instantiate()
+		var weapon: Node2D = weapon_scene.instantiate()
 		weapon.kind = entry
 		weapon.player_fired = true
 		weapon.ship = self

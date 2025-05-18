@@ -314,6 +314,8 @@ func _other_effect(kind: String, value):
 			bonus_hull += value
 		"add_weapon":
 			bonus_weapons.append(value)
+			if is_instance_valid(player):
+				player.setup_weapons()
 		"thrust_power":
 			bonus_thrust += value
 		"teleport":
