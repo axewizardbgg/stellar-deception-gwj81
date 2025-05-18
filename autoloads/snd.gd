@@ -37,7 +37,7 @@ var sounds: Dictionary = {
 		"stream": load("res://audio/GWJ81_shoot1.ogg"),
 		"player": null,
 		"count": 0
-	}
+	},
 }
 
 # Sound players yay!
@@ -53,12 +53,13 @@ func initialize(scene_tree: SceneTree):
 func play(snd: String):
 	# Is snd a key in our dictionary?
 	if sounds.has(snd):
-		# It does, play the sound
-		sounds[snd].player.play()
 		# Here's some shenanigans I have to do to make the sound players work right in HTML5
 		# https://forum.godotengine.org/t/audio-gets-quieter-the-more-a-source-is-played-in-browser-build/80375/3
 		sounds[snd].count += 1
 		if sounds[snd].count > 25:
 			sounds[snd].player.stream = load(sounds[snd].path)
 			sounds[snd].count = 0
+		# It does, play the sound
+		sounds[snd].player.play()
+		
 		

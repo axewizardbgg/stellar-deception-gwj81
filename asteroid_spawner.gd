@@ -28,4 +28,5 @@ func _create_asteroid():
 
 # Getting some wierd "Can't change this state while flushing queries" error, says to use call_deferred
 func _asteroid_destroyed():
-	call_deferred("_create_asteroid")
+	if get_tree().get_node_count_in_group("asteroids") < max_asteroids:
+		call_deferred("_create_asteroid")

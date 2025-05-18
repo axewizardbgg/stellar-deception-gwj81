@@ -35,6 +35,10 @@ func _ready() -> void:
 	# First things first, let's pause the game! (We can still process, but not the rest of the game)
 	get_tree().paused = true
 	
+	# Load our sound into our snd player and play it (I do this manually for HTML5 quirks...)
+	$AudioStreamPlayer.stream = load("res://audio/GWJ81_Location.mp3")
+	$AudioStreamPlayer.play()
+	
 	# Now, are we showing a special event, or a random one?
 	if special_event.is_empty():
 		# Random event

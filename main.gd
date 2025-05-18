@@ -18,10 +18,6 @@ var danger: String = "Low" # "Low", "Medium", "High"
 # Keep track of how many destinations we've arrived at. (Used for random things like determining asteroid count)
 var level = 1
 
-# Keep our music audio files preloaded
-var music_space: AudioStream = load("res://audio/GWJ81_Space.mp3")
-var music_location: AudioStream = load("res://audio/GWJ81_Location.mp3")
-
 # Sometimes we need to re-engage enemies the player has run from
 var event_spawner: Node2D
 var previous_enemy: Dictionary = {
@@ -57,7 +53,7 @@ func _new_game():
 	
 	# Add our audio player and have it start playing
 	var snd_player: AudioStreamPlayer = AudioStreamPlayer.new()
-	snd_player.stream = music_space
+	snd_player.stream = load("res://audio/GWJ81_Space.mp3")
 	snd_player.autoplay = true
 	add_child(snd_player)
 	
@@ -146,7 +142,7 @@ func _arrive():
 	
 	# Add our audio player and have it start playing
 	var snd_player: AudioStreamPlayer = AudioStreamPlayer.new()
-	snd_player.stream = music_location
+	snd_player.stream = load("res://audio/GWJ81_Location.mp3")
 	snd_player.autoplay = true
 	add_child(snd_player)
 	
@@ -230,7 +226,7 @@ func _destination_selected(d_id: String):
 	
 	# Add our audio player and have it start playing
 	var snd_player: AudioStreamPlayer = AudioStreamPlayer.new()
-	snd_player.stream = music_space
+	snd_player.stream = load("res://audio/GWJ81_Space.mp3")
 	snd_player.autoplay = true
 	add_child(snd_player)
 	

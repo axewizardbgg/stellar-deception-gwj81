@@ -188,8 +188,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Continue the Expedition"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Result"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ekrcu")
-autoplay = true
 
 [connection signal="pressed" from="Result/CC/VBC/Continue" to="." method="_on_continue_pressed"]
