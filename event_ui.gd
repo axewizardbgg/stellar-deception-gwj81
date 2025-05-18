@@ -16,6 +16,7 @@ var special_event: Dictionary
 @onready var bar_ship: ProgressBar = $Result/CC/VBC/HBC/Ship
 @onready var bar_crew: ProgressBar = $Result/CC/VBC/HBC2/Crew
 @onready var bar_cash: ProgressBar = $Result/CC/VBC/HBC3/Cash
+@onready var change: Label = $Result/CC/VBC/Change
 @onready var proceed: Button = $Result/CC/VBC/Continue
 
 # Expected to be set before _ready
@@ -86,8 +87,22 @@ func _choice_clicked(idx: int):
 	choice_ui.visible = false
 	result_ui.visible = true
 	
-	# Update the result label
+	# Update the result and change summary labels
 	result.text = event.choices[idx].result
+	var summary: String = "Ship: "
+	if event.choices[idx].effect_ship > -0.1:
+		summary += "+"+str(event.choices[idx].effect_ship)
+	else:
+		summary += str(event.choices[idx].effect_ship)
+	if event.choices[idx].effect_crew > -0.1:
+		summary += "   Crew: +"+str(event.choices[idx].effect_crew)
+	else:
+		summary += "   Crew: "+str(event.choices[idx].effect_crew)
+	if event.choices[idx].effect_cash > -0.1:
+		summary += "   Cash: +"+str(event.choices[idx].effect_cash)
+	else:
+		summary += "   Cash: "+str(event.choices[idx].effect_cash)
+	change.text = summary
 	
 	# Initialize the progress bar values before we tween them
 	bar_ship.value = bar_values.ship

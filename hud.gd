@@ -28,10 +28,24 @@ func _set_cash_pc(new_value: float) -> void:
 func _set_speed_pc(new_value: float) -> void:
 	# Update our value and the needle rotation
 	speed_pc = new_value
-	$UI/SpeedNeedle.rotation = deg_to_rad(remap(new_value, 0.0, 100.0, -174.0, -41.0)) # lerp(-174.0, -41.0, needle_rot)
+	$UI/SpeedNeedle.rotation = deg_to_rad(remap(new_value, 0.0, 100.0, -174.0, -41.0))
 func _set_dest_dir(new_value: float) -> void:
 	destination_direction = new_value
 	$UI/DestinationNeedle.rotation = new_value
+	
+	# Last minute rushed change: This signal is basically being fired every frame, so
+	# let's also update the distance to the destination as well (too lazy to make another signal)
+	var player: RigidBody2D = get_tree().get_first_node_in_group("player")
+	if is_instance_valid(player):
+		var dist: float = (player.destination - player.global_position).length()
+		# Ugly formatter code to make it work how I want
+		var dist_str: String = str(roundf(dist))+" n"
+		if dist >= 1000000:
+			dist_str = str(snapped(dist / 1000000, 0.01))+"m n"
+		if dist >= 1000:
+			dist_str = str(snapped(dist / 1000, 0.01))+"k n"
+		$UI/Distance.text = dist_str
+		
 
 # When the speed of the ship changes
 func update_speed(new_value: float, max_value: float):

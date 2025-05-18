@@ -93,7 +93,7 @@ offset_top = 187.0
 offset_right = 1208.0
 offset_bottom = 210.0
 theme_override_font_sizes/font_size = 16
-text = "600ks"
+text = "600ns"
 horizontal_alignment = 2
 
 [node name="DestinationNeedle" type="Sprite2D" parent="UI"]
@@ -125,4 +125,14 @@ offset_left = 981.0
 offset_top = 303.0
 offset_right = 1071.0
 offset_bottom = 326.0
-text = "Destination Direction"
+text = "Destination"
+
+[node name="Distance" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1095.0
+offset_top = 303.0
+offset_right = 1192.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 20
+text = "40.23k n"
+horizontal_alignment = 2

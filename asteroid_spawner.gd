@@ -2,7 +2,7 @@ extends Node2D
 
 # Expected to be set before _ready
 var player: RigidBody2D
-var max_asteroids: int = 2
+var max_asteroids: int = 6
 
 # Other asteroidy stuff
 var asteroids: Array = []

@@ -87,7 +87,8 @@ func _new_game():
 	player = load("res://ship.tscn").instantiate()
 	player.destination = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized() * randf_range(20000, 30000)
 	add_child(player)
-	player.rotation = player.destination.angle()
+	# player.rotation = player.destination.angle()
+	player.rotation = randf() * TAU # I changed my mind, face them in a random direction
 	player.z_index = 1
 	
 	# Add our destination location
@@ -122,7 +123,7 @@ func _new_game():
 	# Oh yeah, also add our ASTEROID SPAWNER WOOOO
 	var asteroid_spawner: Node2D = load("res://asteroid_spawner.tscn").instantiate()
 	asteroid_spawner.player = player
-	asteroid_spawner.max_asteroids = 2 * level
+	asteroid_spawner.max_asteroids = 6 + level
 	add_child(asteroid_spawner)
 
 # Clears the main scene of any children
@@ -265,7 +266,8 @@ func _destination_selected(d_id: String):
 	
 	# Add it to the scene and then set the rotation and z_index
 	add_child(player)
-	player.rotation = player.destination.angle()
+	# player.rotation = player.destination.angle()
+	player.rotation = randf() * TAU # I changed my mind, face them in a random direction
 	player.z_index = 1
 	
 	# Add our destination location
