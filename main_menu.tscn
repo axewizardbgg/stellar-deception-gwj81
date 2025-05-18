@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxng6hf4vvd3e"]
+
+[ext_resource type="Script" uid="uid://dr1iwoeur4c5c" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Theme" uid="uid://bmvdryhyhuaew" path="res://themes/drawn.tres" id="1_glbon"]
+[ext_resource type="Texture2D" uid="uid://bs71a22ib8l1q" path="res://sprites/parchment-gold.png" id="3_nlkkf"]
+[ext_resource type="AudioStream" uid="uid://bfynddpvwtobp" path="res://audio/GWJ81_Menu.mp3" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://pohq74t6unac" path="res://sprites/GWJ81_Title_b.png" id="4_qe12f"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_glbon")
+script = ExtResource("1_fu7sn")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1283.0
+offset_bottom = 722.0
+texture = ExtResource("3_nlkkf")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_qe12f")
+expand_mode = 1
+
+[node name="Start" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 469.0
+offset_right = 275.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="Exit" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 555.0
+offset_right = 275.0
+offset_bottom = 630.0
+theme_override_font_sizes/font_size = 48
+text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jix8l")
+autoplay = true
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

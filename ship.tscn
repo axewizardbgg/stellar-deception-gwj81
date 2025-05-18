@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm3lj0itkipvx"]
+
+[ext_resource type="Script" uid="uid://dbfcrtlbo2dws" path="res://ship.gd" id="1_l3rv8"]
+[ext_resource type="Texture2D" uid="uid://di1xnbkvr086i" path="res://sprites/GWJ81_Ship_1.png" id="2_4cq66"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cq66"]
+size = Vector2(100, 80)
+
+[node name="Ship" type="RigidBody2D"]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 0.05
+angular_damp = 0.2
+script = ExtResource("1_l3rv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4cq66")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(70, -29, 44, -45, -7, -60, -44, -58, -67, -13, -66, 34, -37, 60, -4, 58, 41, 50, 68, 31)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(150, 0)
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4cq66")

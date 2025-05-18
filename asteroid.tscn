@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7b3ksb1wfasj"]
+
+[ext_resource type="Script" uid="uid://mmionefr234" path="res://asteroid.gd" id="1_p0ukn"]
+[ext_resource type="Texture2D" uid="uid://ck5x88m82jq40" path="res://sprites/GWJ81_AsteroidLarge_1.png" id="2_lu1tu"]
+[ext_resource type="Texture2D" uid="uid://bw5vfwls3r5pc" path="res://sprites/GWJ81_AsteroidLarge_2.png" id="3_tw4ug"]
+[ext_resource type="Texture2D" uid="uid://cj0l1tnv24jvr" path="res://sprites/GWJ81_AsteroidSmall_1.png" id="4_6cwuw"]
+[ext_resource type="Texture2D" uid="uid://6lh81wr1tsc" path="res://sprites/GWJ81_AsteroidSmall_2.png" id="5_uf7ls"]
+[ext_resource type="Texture2D" uid="uid://cyn5fpdtd2q06" path="res://sprites/GWJ81_AsteroidSmall_3.png" id="6_8ewcs"]
+
+[node name="Asteroid" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_p0ukn")
+
+[node name="Spr1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_lu1tu")
+
+[node name="Col1" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(90, -43, 54, -79, 17, -89, -38, -78, -96, 8, -95, 20, -73, 55, -5, 85, 35, 86, 85, 59)
+
+[node name="Spr2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_tw4ug")
+
+[node name="Col2" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(85, 10, 69, -47, 49, -67, -39, -48, -85, 8, -51, 56, -19, 62, 67, 38)
+
+[node name="Spr3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_6cwuw")
+
+[node name="Col3" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(44, 9, 38, -24, 23, -39, -24, -35, -45, 8, 10, 40)
+
+[node name="Spr4" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_uf7ls")
+
+[node name="Col4" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(23, -24, -2, -39, -33, -6, -30, 21, 3, 40, 35, 1)
+
+[node name="Spr5" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_8ewcs")
+
+[node name="Col5" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(43, 0, 26, -33, -7, -39, -44, -5, -34, 33, 0, 39, 28, 28)

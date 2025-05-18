@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cudotm0d3mkea"]
+
+[ext_resource type="Texture2D" uid="uid://bs71a22ib8l1q" path="res://sprites/parchment-gold.png" id="1_ksuqd"]
+[ext_resource type="Texture2D" uid="uid://ipmai1w5iiph" path="res://sprites/GWJ81_Stars (1).png" id="2_si5dj"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_ksuqd")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_si5dj")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+scale = Vector2(-1, -1)
+texture = ExtResource("2_si5dj")

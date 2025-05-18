@@ -1,0 +1,298 @@
+[gd_scene load_steps=7 format=3 uid="uid://dksepf6hmrbry"]
+
+[ext_resource type="Theme" uid="uid://bmvdryhyhuaew" path="res://themes/drawn.tres" id="1_8ng3j"]
+[ext_resource type="Script" uid="uid://hcygppulb0w3" path="res://location_ui.gd" id="2_ewn5p"]
+[ext_resource type="Texture2D" uid="uid://bs71a22ib8l1q" path="res://sprites/parchment-gold.png" id="3_ewn5p"]
+[ext_resource type="Texture2D" uid="uid://co7u3tjg2yvak" path="res://sprites/GWJ81_icon_ship_b.png" id="4_2qwpl"]
+[ext_resource type="Texture2D" uid="uid://dymfmgyvbac0w" path="res://sprites/GWJ81_icon_crew_b.png" id="5_uvmpq"]
+[ext_resource type="Texture2D" uid="uid://c3ov2ftfbbhxm" path="res://sprites/GWJ81_icon_cash_b.png" id="6_rwv50"]
+
+[node name="LocationUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8ng3j")
+script = ExtResource("2_ewn5p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1282.0
+offset_bottom = 722.0
+texture = ExtResource("3_ewn5p")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MainUI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="MainUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBC" type="VBoxContainer" parent="MainUI/MC"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="MainUI/MC/VBC"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Location Title"
+
+[node name="Description" type="Label" parent="MainUI/MC/VBC"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+text = "This is where the description about the location goes, usually just a quick blurb about the location. Unfortunately I won't be able to dedicate any additional time to make this more engaging or meaningful."
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MainUI/MC/VBC"]
+layout_mode = 2
+
+[node name="HBC" type="HBoxContainer" parent="MainUI/MC/VBC"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VBC" type="VBoxContainer" parent="MainUI/MC/VBC/HBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MainUI/MC/VBC/HBC/VBC"]
+layout_mode = 2
+text = "What would you like to do while you're here?"
+
+[node name="ChoicesLeft" type="Label" parent="MainUI/MC/VBC/HBC/VBC"]
+layout_mode = 2
+text = "(3 choices remaining)"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainUI/MC/VBC/HBC/VBC"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="ChoicesVBC" type="VBoxContainer" parent="MainUI/MC/VBC/HBC/VBC/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="Button" type="Button" parent="MainUI/MC/VBC/HBC/VBC/ScrollContainer/ChoicesVBC"]
+layout_mode = 2
+text = "Upgrade Ship Armor
+
+Take a trip to the Outfitters to have them install some additional armor plating on your ship.
+
+Ship + 20     Crew + 3,     Cash -15"
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="MainUI/MC/VBC/HBC/VBC/ScrollContainer/ChoicesVBC"]
+layout_mode = 2
+text = "R&R
+
+Grant some R&R time for the crew which increases morale, however it also means their duties are neglected.
+"
+autowrap_mode = 2
+
+[node name="Button3" type="Button" parent="MainUI/MC/VBC/HBC/VBC/ScrollContainer/ChoicesVBC"]
+layout_mode = 2
+text = "'Free-sixty'"
+
+[node name="Button4" type="Button" parent="MainUI/MC/VBC/HBC/VBC/ScrollContainer/ChoicesVBC"]
+layout_mode = 2
+text = "Hologame Console"
+
+[node name="VSeparator" type="VSeparator" parent="MainUI/MC/VBC/HBC"]
+layout_mode = 2
+
+[node name="VBC2" type="VBoxContainer" parent="MainUI/MC/VBC/HBC"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/MC/VBC/HBC/VBC2"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("4_2qwpl")
+expand_mode = 1
+
+[node name="ShipBar" type="ProgressBar" parent="MainUI/MC/VBC/HBC/VBC2"]
+custom_minimum_size = Vector2(24, 200)
+layout_mode = 2
+value = 75.0
+fill_mode = 3
+show_percentage = false
+
+[node name="VBC3" type="VBoxContainer" parent="MainUI/MC/VBC/HBC"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/MC/VBC/HBC/VBC3"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("5_uvmpq")
+expand_mode = 1
+
+[node name="CrewBar" type="ProgressBar" parent="MainUI/MC/VBC/HBC/VBC3"]
+custom_minimum_size = Vector2(24, 200)
+layout_mode = 2
+value = 75.0
+fill_mode = 3
+show_percentage = false
+
+[node name="VBC4" type="VBoxContainer" parent="MainUI/MC/VBC/HBC"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainUI/MC/VBC/HBC/VBC4"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("6_rwv50")
+expand_mode = 1
+
+[node name="CashBar" type="ProgressBar" parent="MainUI/MC/VBC/HBC/VBC4"]
+custom_minimum_size = Vector2(24, 200)
+layout_mode = 2
+value = 75.0
+fill_mode = 3
+show_percentage = false
+
+[node name="ResultUI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CC" type="CenterContainer" parent="ResultUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBC" type="VBoxContainer" parent="ResultUI/CC"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="ResultUI/CC/VBC"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Result:"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ResultUI/CC/VBC"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="ResultUI/CC/VBC"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+text = "The console cost less than you expected, and it's been a big hit with the crew... such a big hit in fact that you've noticed some of the crew slacking in their duties and stealing away to the crew bay to get some game time in..."
+autowrap_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="ResultUI/CC/VBC"]
+layout_mode = 2
+
+[node name="HBC" type="HBoxContainer" parent="ResultUI/CC/VBC"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ResultUI/CC/VBC/HBC"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("4_2qwpl")
+expand_mode = 1
+
+[node name="ShipBar" type="ProgressBar" parent="ResultUI/CC/VBC/HBC"]
+custom_minimum_size = Vector2(500, 36)
+layout_mode = 2
+value = 75.0
+show_percentage = false
+
+[node name="HBC2" type="HBoxContainer" parent="ResultUI/CC/VBC"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ResultUI/CC/VBC/HBC2"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("5_uvmpq")
+expand_mode = 1
+
+[node name="CrewBar" type="ProgressBar" parent="ResultUI/CC/VBC/HBC2"]
+custom_minimum_size = Vector2(500, 36)
+layout_mode = 2
+value = 75.0
+show_percentage = false
+
+[node name="HBC3" type="HBoxContainer" parent="ResultUI/CC/VBC"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ResultUI/CC/VBC/HBC3"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("6_rwv50")
+expand_mode = 1
+
+[node name="CashBar" type="ProgressBar" parent="ResultUI/CC/VBC/HBC3"]
+custom_minimum_size = Vector2(500, 36)
+layout_mode = 2
+value = 75.0
+show_percentage = false
+
+[node name="Proceed" type="Button" parent="ResultUI/CC/VBC"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "Proceed"
+
+[node name="DestinationUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="DestinationUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBC" type="VBoxContainer" parent="DestinationUI/MC"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="DestinationUI/MC/VBC"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Select your next destination:"
+
+[node name="HSeparator" type="HSeparator" parent="DestinationUI/MC/VBC"]
+layout_mode = 2
+
+[node name="HBC" type="HBoxContainer" parent="DestinationUI/MC/VBC"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[connection signal="pressed" from="ResultUI/CC/VBC/Proceed" to="." method="_on_proceed_pressed"]

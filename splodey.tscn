@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://qy5t3bpl8npk"]
+
+[ext_resource type="Texture2D" uid="uid://dqf8xrtkxw1fr" path="res://sprites/GWJ81_Splodey_b.png" id="1_320vx"]
+[ext_resource type="Script" uid="uid://byvnebmesuqo" path="res://splodey.gd" id="2_mklo5"]
+
+[node name="Splodey" type="Node2D"]
+z_index = 2
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_mklo5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-37, -80)
+texture = ExtResource("1_320vx")

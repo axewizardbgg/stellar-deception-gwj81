@@ -1,0 +1,190 @@
+[gd_scene load_steps=8 format=3 uid="uid://7qbytonafl81"]
+
+[ext_resource type="Script" uid="uid://d26x17wv7r7n0" path="res://event_ui.gd" id="1_58mqt"]
+[ext_resource type="Theme" uid="uid://bmvdryhyhuaew" path="res://themes/drawn.tres" id="2_xn1iq"]
+[ext_resource type="Texture2D" uid="uid://bs71a22ib8l1q" path="res://sprites/parchment-gold.png" id="3_y45tt"]
+[ext_resource type="Texture2D" uid="uid://co7u3tjg2yvak" path="res://sprites/GWJ81_icon_ship_b.png" id="4_1ft20"]
+[ext_resource type="Texture2D" uid="uid://dymfmgyvbac0w" path="res://sprites/GWJ81_icon_crew_b.png" id="5_ekrcu"]
+[ext_resource type="Texture2D" uid="uid://c3ov2ftfbbhxm" path="res://sprites/GWJ81_icon_cash_b.png" id="6_qnf8y"]
+[ext_resource type="AudioStream" uid="uid://jqf04hliarv1" path="res://audio/GWJ81_Location.mp3" id="7_ekrcu"]
+
+[node name="EventUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_58mqt")
+
+[node name="Choices" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xn1iq")
+
+[node name="CC" type="CenterContainer" parent="Choices"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Choices/CC"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="Choices/CC"]
+custom_minimum_size = Vector2(990, 590)
+layout_mode = 2
+texture = ExtResource("3_y45tt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBC" type="VBoxContainer" parent="Choices/CC"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Choices/CC/VBC"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Random Event!"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Choices/CC/VBC"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="Choices/CC/VBC"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+text = "As you're travelling to your destination, your scannners read an inert vessel nearby. There appear to be no signs of life, and there could be things you can salvage.
+"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Choices/CC/VBC"]
+layout_mode = 2
+text = "What do you do?"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Choices/CC/VBC"]
+layout_mode = 2
+
+[node name="Choice1" type="Button" parent="Choices/CC/VBC"]
+layout_mode = 2
+text = "Attempt to search the derelict ship."
+
+[node name="Choice2" type="Button" parent="Choices/CC/VBC"]
+layout_mode = 2
+text = "You've got a bad feeling, keep moving."
+
+[node name="Result" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xn1iq")
+
+[node name="CC" type="CenterContainer" parent="Result"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Result/CC"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="Result/CC"]
+custom_minimum_size = Vector2(990, 590)
+layout_mode = 2
+texture = ExtResource("3_y45tt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBC" type="VBoxContainer" parent="Result/CC"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Result/CC/VBC"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Result:"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Result/CC/VBC"]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="Result/CC/VBC"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+text = "You send your crew in to search the ship. No signs of a struggle, and no bodies. You guess it was a mechanical failure, and someone responded to their distress beacon in time. You salvaged some extra credits, and the crew found a modular light cannon prototype that can be easily installed without the need of an Outfitter."
+autowrap_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Result/CC/VBC"]
+layout_mode = 2
+
+[node name="HBC" type="HBoxContainer" parent="Result/CC/VBC"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Result/CC/VBC/HBC"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("4_1ft20")
+expand_mode = 1
+
+[node name="Ship" type="ProgressBar" parent="Result/CC/VBC/HBC"]
+custom_minimum_size = Vector2(400, 36)
+layout_mode = 2
+value = 75.0
+show_percentage = false
+
+[node name="HBC2" type="HBoxContainer" parent="Result/CC/VBC"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Result/CC/VBC/HBC2"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("5_ekrcu")
+expand_mode = 1
+
+[node name="Crew" type="ProgressBar" parent="Result/CC/VBC/HBC2"]
+custom_minimum_size = Vector2(400, 36)
+layout_mode = 2
+value = 75.0
+show_percentage = false
+
+[node name="HBC3" type="HBoxContainer" parent="Result/CC/VBC"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Result/CC/VBC/HBC3"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+texture = ExtResource("6_qnf8y")
+expand_mode = 1
+
+[node name="Cash" type="ProgressBar" parent="Result/CC/VBC/HBC3"]
+custom_minimum_size = Vector2(400, 36)
+layout_mode = 2
+value = 75.0
+show_percentage = false
+
+[node name="HSeparator3" type="HSeparator" parent="Result/CC/VBC"]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="Result/CC/VBC"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue the Expedition"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Result"]
+stream = ExtResource("7_ekrcu")
+autoplay = true
+
+[connection signal="pressed" from="Result/CC/VBC/Continue" to="." method="_on_continue_pressed"]

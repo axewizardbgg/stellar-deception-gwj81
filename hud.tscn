@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv2i4rofyebij"]
+
+[ext_resource type="Script" uid="uid://dklwm3c3au3ws" path="res://hud.gd" id="1_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://bs71a22ib8l1q" path="res://sprites/parchment-gold.png" id="2_640wx"]
+[ext_resource type="Theme" uid="uid://bmvdryhyhuaew" path="res://themes/drawn.tres" id="2_a2258"]
+[ext_resource type="Texture2D" uid="uid://cnsi6csibipcl" path="res://sprites/GWJ81_HUD_b.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://cqmnlyun4un4k" path="res://sprites/GWJ81_Projectile2_b.png" id="5_1xsix"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8sq4i")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_a2258")
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 947.0
+offset_top = -1.0
+offset_right = 1283.0
+offset_bottom = 721.0
+texture = ExtResource("2_640wx")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="HanddrawnHUD" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 940.0
+offset_top = -2.0
+offset_right = 1286.0
+offset_bottom = 717.0
+texture = ExtResource("3_1xsix")
+expand_mode = 1
+
+[node name="Hull" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 996.0
+offset_top = 77.0
+offset_right = 1223.0
+offset_bottom = 104.0
+value = 75.0
+rounded = true
+show_percentage = false
+
+[node name="Ship" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 1051.0
+offset_top = 541.0
+offset_right = 1199.0
+offset_bottom = 568.0
+value = 75.0
+rounded = true
+show_percentage = false
+
+[node name="Crew" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 1051.0
+offset_top = 584.0
+offset_right = 1199.0
+offset_bottom = 611.0
+value = 75.0
+rounded = true
+show_percentage = false
+
+[node name="Cash" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 1052.0
+offset_top = 629.0
+offset_right = 1200.0
+offset_bottom = 656.0
+value = 75.0
+rounded = true
+show_percentage = false
+
+[node name="SpeedNeedle" type="Sprite2D" parent="UI"]
+position = Vector2(1102, 222)
+rotation = -0.71733
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_1xsix")
+offset = Vector2(50, 0)
+flip_h = true
+
+[node name="Label" type="Label" parent="UI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1153.0
+offset_top = 187.0
+offset_right = 1208.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 16
+text = "600ks"
+horizontal_alignment = 2
+
+[node name="DestinationNeedle" type="Sprite2D" parent="UI"]
+position = Vector2(1111, 418)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_1xsix")
+offset = Vector2(50, 0)
+flip_h = true
+
+[node name="Label2" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 41.0
+offset_right = 1033.0
+offset_bottom = 64.0
+text = "Hull"
+
+[node name="Label3" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 177.0
+offset_right = 1043.0
+offset_bottom = 204.0
+text = "Speed"
+
+[node name="Label4" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 981.0
+offset_top = 303.0
+offset_right = 1071.0
+offset_bottom = 326.0
+text = "Destination Direction"

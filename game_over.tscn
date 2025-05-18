@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://c343rewrcdy5j"]
+
+[ext_resource type="Theme" uid="uid://bmvdryhyhuaew" path="res://themes/drawn.tres" id="1_8u835"]
+[ext_resource type="Script" uid="uid://n08hr48cexge" path="res://game_over.gd" id="2_ftari"]
+[ext_resource type="Texture2D" uid="uid://bs71a22ib8l1q" path="res://sprites/parchment-gold.png" id="3_28vn7"]
+[ext_resource type="Texture2D" uid="uid://ddppyak5ygawl" path="res://sprites/GWJ81_Gameover_Dude.png" id="4_k2vha"]
+[ext_resource type="Texture2D" uid="uid://cusb71qq0mop" path="res://sprites/GWJ81_end.png" id="5_ftari"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8u835")
+script = ExtResource("2_ftari")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1283.0
+offset_bottom = 725.0
+texture = ExtResource("3_28vn7")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="DeadBro" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 650)
+layout_mode = 2
+texture = ExtResource("4_k2vha")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Win" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(500, 650)
+layout_mode = 2
+texture = ExtResource("5_ftari")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "After many weeks of constant duress, you and your crew have done it! You finally land on the Alien Homeworld, and your contact is waiting for you. You deliver the sealed package and your receive payment immediately, and the first thing you do is give a huge bonus to your crew! You board your beloved ship and begin the journey home...
+
+Suddenly alarms are blaring, all sensors are spiked, and your ship is rocked violently... as your ship spins violently around you see the giant mushroom cloud... what was in that package? Were you the cause of this? For some reason those are the questions that come to mind as the inferno takes you."
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
