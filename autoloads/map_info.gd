@@ -475,7 +475,7 @@ var events: Array = [
 		"choices": [
 			{
 				"description": "Attempt to search the derelict ship.",
-				"result": "You send your crew in to search the ship. No signs of a struggle, and no bodies. You guess it was a mechanical failure, and someone responded to their distress beacon in time. You salvaged some extra credits, and the crew found a modular light cannon prototype that can be easily installed without the need of an Outfitter.",
+				"result": "You send your crew in to search the ship. No signs of a struggle, and no bodies. You guess it was a mechanical failure, and someone responded to their distress beacon in time. You salvaged some extra credits, and the crew found a modular light cannon that can be easily installed without the need of an Outfitter once you get to a port.",
 				"effect_ship": 10,
 				"effect_crew": 0,
 				"effect_cash": 5,
